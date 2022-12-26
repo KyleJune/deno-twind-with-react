@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0?target=deno&pin=v99",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime?target=deno&pin=v99",
+    "react/jsx-dev-runtime": "https://esm.sh/react@18.2.0/jsx-dev-runtime?target=deno&pin=v99"
+  }
+}
