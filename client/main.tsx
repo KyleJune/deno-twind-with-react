@@ -25,7 +25,7 @@ const hydrate = () =>
     );
   });
 
-if (requestIdleCallback) {
+if (typeof requestIdleCallback !== "undefined") {
   requestIdleCallback(hydrate);
 } else {
   // Safari doesn't support requestIdleCallback
