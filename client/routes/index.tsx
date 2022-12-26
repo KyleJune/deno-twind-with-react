@@ -27,16 +27,8 @@ export const Layout = () => (
 export function Index() {
   const links = [
     {
-      href: "https://remix.run/tutorials/blog",
-      text: "15m Quickstart Blog Tutorial",
-    },
-    {
-      href: "https://remix.run/tutorials/jokes",
-      text: "Deep Dive Jokes App Tutorial",
-    },
-    {
-      href: "https://remix.run/docs",
-      text: "Remix Docs",
+      href: "https://github.com/KyleJune/deno-twind-with-react",
+      text: "GitHub Repository",
     },
     {
       href: "https://twind.style/",
@@ -47,7 +39,7 @@ export function Index() {
   return (
     <main className="py-16 px-4 max-w-screen-md mx-auto w-full">
       <h1 className="text-4xl font-light mb-6">
-        Welcome to Remix + Twind 💿🚀
+        Welcome to Deno + React 18 + Twind 🦕🚀
       </h1>
       <ul className="list-disc grid gap-2">
         {links.map((link) => (
