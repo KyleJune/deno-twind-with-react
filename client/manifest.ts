@@ -1,8 +1,9 @@
 import { ComponentType } from "$esm/react";
+import * as path from "$std/path/mod.ts";
 
 import { registerLazyFactory } from "./lazy.ts";
 
-interface Manifest {
+export interface Manifest {
   // deno-lint-ignore no-explicit-any
   [key: string]: Manifest | ComponentType<any>;
 }
@@ -27,3 +28,18 @@ export const manifest = {
 } as Manifest;
 
 registerManifest(".", manifest);
+
+export const routes = new Set<string>(["/"]);
+
+function registerRoutes(basePath: string, manifest: Manifest) {
+  for (const [routePath, route] of Object.entries(manifest)) {
+    const pathname = path.join(basePath, routePath);
+    routes.add(pathname)
+    if (typeof route === "object") {
+      registerRoutes(pathname, route);
+    }
+  }
+}
+
+registerRoutes("/", manifest.routes as Manifest);
+console.log("routes", [...routes]);

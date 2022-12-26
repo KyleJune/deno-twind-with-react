@@ -2,13 +2,7 @@ import * as path from "$std/path/mod.ts";
 import { isHttpError } from "$x/http_error/mod.ts";
 import { Router, etag } from "$x/oak/mod.ts";
 import { ssr } from "../ssr.tsx";
-import { manifest } from "../client/manifest.ts";
-
-const existingPaths = new Set();
-for (const key of Object.keys(manifest)) {
-
-}
-
+import { routes } from "../client/manifest.ts";
 
 export const mainRouter = new Router()
   .use(async (context, next) => {
@@ -36,7 +30,7 @@ export const mainRouter = new Router()
     const { pathname } = request.url;
     if (path.extname(pathname) === "") {
       console.log('pathname', pathname);
-      if (existingPaths.has(pathname)) {
+      if (!routes.has(pathname)) {
         response.status = 404;
       }
       await ssr(context);
