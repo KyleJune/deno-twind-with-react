@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext", "dom", "dom.iterable", "dom.asynciterable", "deno.ns"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "$esm/react"
+  },
+  "importMap": "./import_map_dev.json",
+  "lock": "./deno_dev.lock"
+}

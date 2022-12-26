@@ -1,7 +1,8 @@
-import { Helmet, reactRouter } from "../deps_client.ts";
+import { Helmet } from "$esm/react-helmet-async";
+import { Routes, Route } from "$esm/react-router-dom";
+
 import { lazyFactory } from "./lazy.ts";
 import { Index, Layout } from "./routes/index.tsx";
-const { Routes, Route } = reactRouter;
 
 const lazy = lazyFactory(import.meta.url);
 const Anything = lazy(

@@ -1,12 +1,11 @@
 import { App } from "./client/app.tsx";
 import { tw } from "./client/twind.ts";
-import { HelmetContext, HelmetProvider, TwindStream } from "./deps_client.ts";
-import {
-  oak,
-  renderToReadableStream,
-  serialize,
-  StaticRouter,
-} from "./deps_server.ts";
+import { HelmetContext, HelmetProvider } from "$esm/react-helmet-async";
+import TwindStream from "$esm/@twind/with-react/readableStream";
+import { renderToReadableStream } from "$esm/react-dom/server";
+import { StaticRouter } from "$esm/react-router-dom/server";
+import serialize from "$esm/serialize-javascript";
+import { Context } from "$x/oak/mod.ts";
 import "./client/manifest.ts";
 
 export const html = (
@@ -66,7 +65,7 @@ const ServerApp = (
 
 const encoder = new TextEncoder();
 
-export async function ssr(context: oak.Context) {
+export async function ssr(context: Context) {
   const { request, response } = context;
   const { pathname, search } = request.url;
   const location = `${pathname}${search}`;

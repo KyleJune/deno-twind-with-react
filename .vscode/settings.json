@@ -2,7 +2,7 @@
   "deno.enable": true,
   "deno.lint": true,
   "deno.unstable": false,
-  "deno.config": "./deno.jsonc",
+  "deno.config": "./deno_dev.jsonc",
   "deno.suggest.imports.hosts": {
     "https://deno.land": true
   }

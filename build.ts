@@ -1,11 +1,19 @@
-import { denoPlugin, esbuild } from "./deps_build.ts";
+import * as esbuild from "$x/esbuild/mod.js";
+import { denoPlugin } from "$x/esbuild_deno_loader/mod.ts";
 import { isProduction } from "./env.ts";
 
-export async function bundle(options: esbuild.BuildOptions) {
+export async function build(options: esbuild.BuildOptions) {
+  const importMapURL = new URL(
+    isProduction()
+      ? "./import_map.json"
+      : "./import_map.json",
+    import.meta.url,
+  );
+
   await esbuild.build({
     plugins: [
       denoPlugin({
-        importMapURL: new URL("./import_map.json", import.meta.url),
+        importMapURL,
       }),
     ],
     entryPoints: ["./client/main.tsx"],
@@ -15,6 +23,7 @@ export async function bundle(options: esbuild.BuildOptions) {
     minify: true,
     format: "esm",
     jsx: "automatic",
+    jsxImportSource: "$esm/react",
     ...options,
   });
   return () => esbuild.stop();
@@ -24,8 +33,8 @@ if (import.meta.main) {
   const options: esbuild.BuildOptions = {};
   if (!isProduction()) {
     options.jsxDev = true;
-    options.sourcemap = "external";
+    options.sourcemap = "linked";
   }
-  const stop = (await bundle(options));
+  const stop = (await build(options));
   if (!options.watch) stop();
 }

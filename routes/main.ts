@@ -1,9 +1,16 @@
-import { httpError, path } from "../deps_client.ts";
-import { oak } from "../deps_server.ts";
+import * as path from "$std/path/mod.ts";
+import { isHttpError } from "$x/http_error/mod.ts";
+import { Router, etag } from "$x/oak/mod.ts";
 import { ssr } from "../ssr.tsx";
-const { isHttpError } = httpError;
+import { manifest } from "../client/manifest.ts";
 
-export const mainRouter = new oak.Router()
+const existingPaths = new Set();
+for (const key of Object.keys(manifest)) {
+
+}
+
+
+export const mainRouter = new Router()
   .use(async (context, next) => {
     const { request, response } = context;
     console.log(request.method, request.url.href);
@@ -23,12 +30,15 @@ export const mainRouter = new oak.Router()
       response.headers.set("X-Response-Time", `${dt}ms`);
     }
   })
-  .use(oak.etag.factory())
+  .use(etag.factory())
   .get("/(.*)", async (context, next) => {
     const { request, response } = context;
     const { pathname } = request.url;
     if (path.extname(pathname) === "") {
-      // response.status = 404;
+      console.log('pathname', pathname);
+      if (existingPaths.has(pathname)) {
+        response.status = 404;
+      }
       await ssr(context);
     } else {
       await next();

@@ -1,7 +1,6 @@
-import { Suspense } from "react";
-import { reactRouter, twind } from "../../deps_client.ts";
-const { Link } = reactRouter;
-const { cx } = twind;
+import { Suspense } from "$esm/react";
+import { Link } from "$esm/react-router-dom";
+import { cx } from "$esm/@twind/core";
 
 let fullfilled = false;
 let promise: Promise<void> | null = null;

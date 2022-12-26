@@ -1,17 +1,17 @@
 {
   "tasks": {
-    "run": "export APP_ENV ?= production && deno run -A main.ts",
-    "build": "export APP_ENV ?= production && deno run -A ./build.ts",
-    "dev-run": "export APP_ENV = development && deno run -A ./main.ts",
-    "dev-run-watch": "export APP_ENV = development && deno run -A --watch ./main.ts",
-    "dev-build": "export APP_ENV = development && deno run -A ./build.ts",
-    "dev-build-watch": "export APP_ENV = development && export BUNDLE_WATCH = true && deno run -A --watch ./build.ts",
+    "run": "export APP_ENV := production && deno run -A main.ts",
+    "build": "export APP_ENV := production && deno run -A ./build.ts",
+    "dev-run": "export APP_ENV = development && deno run --config deno_dev.jsonc  -A ./main.ts",
+    "dev-run-watch": "export APP_ENV = development && deno run --config deno_dev.jsonc  -A --watch ./main.ts",
+    "dev-build": "export APP_ENV = development && deno run --config deno_dev.jsonc  -A ./build.ts",
+    "dev-build-watch": "export APP_ENV = development && export BUNDLE_WATCH = true && deno run --config deno_dev.jsonc -A --watch ./build.ts",
     "check": "deno lint && deno fmt --check"
   },
   "compilerOptions": {
     "lib": ["esnext", "dom", "dom.iterable", "dom.asynciterable", "deno.ns"],
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "$esm/react"
   },
   "importMap": "./import_map.json"
 }

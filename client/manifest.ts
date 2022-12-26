@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+import { ComponentType } from "$esm/react";
 
 import { registerLazyFactory } from "./lazy.ts";
 

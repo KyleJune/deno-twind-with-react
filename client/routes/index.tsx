@@ -1,8 +1,7 @@
-import { Helmet, reactRouter, twind } from "../../deps_client.ts";
-import { Suspense } from "react";
-
-const { Outlet, Link } = reactRouter;
-const { cx } = twind;
+import { Helmet } from "$esm/react-helmet-async";
+import { Suspense } from "$esm/react";
+import { Outlet, Link } from "$esm/react-router-dom";
+import { cx } from "$esm/@twind/core";
 
 const linkClass = cx(
   "transition-all duration-300 opacity-75 hover:(opacity-100 text-blue-500)",

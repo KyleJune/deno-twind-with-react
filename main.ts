@@ -1,8 +1,8 @@
 import { isProduction } from "./env.ts";
-import { oak } from "./deps_server.ts";
+import { Application } from "$x/oak/mod.ts";
 import { mainRouter } from "./routes/main.ts";
 
-export const app = new oak.Application();
+export const app = new Application();
 
 app.use(mainRouter.routes(), mainRouter.allowedMethods());
 

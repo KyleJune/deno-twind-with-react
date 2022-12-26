@@ -1,6 +1,6 @@
-import { path } from "../deps_client.ts";
+import * as path from "$std/path/mod.ts";
 import { isBrowser } from "../env.ts";
-import { lazy } from "react";
+import { lazy } from "$esm/react";
 
 /** Map of pre-loaded lazy modules. This is only used on the server. */
 // deno-lint-ignore no-explicit-any
@@ -11,7 +11,7 @@ console.log(clientDir);
 
 /** Factory that generates a wrapper around `React.lazy` that supports static imports on the server. */
 export const lazyFactory = (moduleUrl: string) => {
-  const dir = isBrowser
+  const dir = isBrowser()
     ? ""
     : path.dirname(path.relative(clientDir, moduleUrl));
   return <T>(
@@ -19,7 +19,7 @@ export const lazyFactory = (moduleUrl: string) => {
     dynamicFactory: () => Promise<{ default: React.ComponentType<T> }>,
   ) =>
     lazy(
-      isBrowser ? dynamicFactory : async () => {
+      isBrowser() ? dynamicFactory : async () => {
         const pathFromClient = path.join(dir, relativePath);
         if (!lazyMap.has(pathFromClient)) {
           console.log("Loaded modules", [...lazyMap.keys()]);
