@@ -42,4 +42,3 @@ function registerRoutes(basePath: string, manifest: Manifest) {
 }
 
 registerRoutes("/", manifest.routes as Manifest);
-console.log("routes", [...routes]);

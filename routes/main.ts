@@ -29,7 +29,6 @@ export const mainRouter = new Router()
     const { request, response } = context;
     const { pathname } = request.url;
     if (path.extname(pathname) === "") {
-      console.log('pathname', pathname);
       if (!routes.has(pathname)) {
         response.status = 404;
       }
