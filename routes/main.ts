@@ -1,6 +1,6 @@
 import * as path from "$std/path/mod.ts";
 import { isHttpError } from "$x/http_error/mod.ts";
-import { Router, etag } from "$x/oak/mod.ts";
+import { etag, Router } from "$x/oak/mod.ts";
 import { ssr } from "../ssr.tsx";
 import { routes } from "../client/manifest.ts";
 

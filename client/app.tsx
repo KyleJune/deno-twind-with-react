@@ -1,5 +1,5 @@
 import { Helmet } from "$esm/react-helmet-async";
-import { Routes, Route } from "$esm/react-router-dom";
+import { Route, Routes } from "$esm/react-router-dom";
 
 import { lazyFactory } from "./lazy.ts";
 import { Index, Layout } from "./routes/index.tsx";

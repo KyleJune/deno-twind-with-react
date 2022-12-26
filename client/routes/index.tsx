@@ -1,6 +1,6 @@
 import { Helmet } from "$esm/react-helmet-async";
 import { Suspense } from "$esm/react";
-import { Outlet, Link } from "$esm/react-router-dom";
+import { Link, Outlet } from "$esm/react-router-dom";
 import { cx } from "$esm/@twind/core";
 
 const linkClass = cx(

@@ -34,7 +34,7 @@ export const routes = new Set<string>(["/"]);
 function registerRoutes(basePath: string, manifest: Manifest) {
   for (const [routePath, route] of Object.entries(manifest)) {
     const pathname = path.join(basePath, routePath);
-    routes.add(pathname)
+    routes.add(pathname);
     if (typeof route === "object") {
       registerRoutes(pathname, route);
     }

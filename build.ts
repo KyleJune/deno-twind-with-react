@@ -4,9 +4,7 @@ import { isProduction } from "./env.ts";
 
 export async function build(options: esbuild.BuildOptions) {
   const importMapURL = new URL(
-    isProduction()
-      ? "./import_map.json"
-      : "./import_map.json",
+    isProduction() ? "./import_map.json" : "./import_map.json",
     import.meta.url,
   );
 

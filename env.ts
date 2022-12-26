@@ -8,5 +8,7 @@ interface EnvironmentWindow extends Window {
 }
 export const getEnv = (
   key: string,
-) => (isServer() ? Deno.env.get(key) : (window as EnvironmentWindow).env?.[key]);
+) => (isServer()
+  ? Deno.env.get(key)
+  : (window as EnvironmentWindow).env?.[key]);
 export const isProduction = () => getEnv("APP_ENV") === "production";
