@@ -1,7 +1,7 @@
 {
   "tasks": {
-    "run": "export APP_ENV := production && deno run -A main.ts",
-    "build": "export APP_ENV := production && deno run -A ./build.ts",
+    "run": "export APP_ENV = production && deno run -A main.ts",
+    "build": "export APP_ENV = production && deno run -A ./build.ts",
     "dev-run": "export APP_ENV = development && deno run --config deno_dev.jsonc  -A ./main.ts",
     "dev-run-watch": "export APP_ENV = development && deno run --config deno_dev.jsonc  -A --watch ./main.ts",
     "dev-build": "export APP_ENV = development && deno run --config deno_dev.jsonc  -A ./build.ts",
