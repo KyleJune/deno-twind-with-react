@@ -1,6 +1,6 @@
-import { Suspense } from "$esm/react";
-import { Link } from "$esm/react-router-dom";
-import { cx } from "$esm/@twind/core";
+import { Suspense } from "$npm/react";
+import { Link } from "$npm/react-router-dom";
+import { cx } from "$npm/@twind/core";
 
 let fullfilled = false;
 let promise: Promise<void> | null = null;

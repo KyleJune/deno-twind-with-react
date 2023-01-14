@@ -1,7 +1,7 @@
-import { Helmet } from "$esm/react-helmet-async";
-import { Suspense } from "$esm/react";
-import { Link, Outlet } from "$esm/react-router-dom";
-import { cx } from "$esm/@twind/core";
+import { Helmet } from "$npm/react-helmet-async";
+import { Suspense } from "$npm/react";
+import { Link, Outlet } from "$npm/react-router-dom";
+import { cx } from "$npm/@twind/core";
 
 const linkClass = cx(
   "transition-all duration-300 opacity-75 hover:(opacity-100 text-blue-500)",

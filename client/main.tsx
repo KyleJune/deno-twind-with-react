@@ -1,10 +1,10 @@
 // for the side effect of creating the global twind instance
 import "./twind.ts";
 
-import { startTransition, StrictMode } from "$esm/react";
-import { HelmetProvider } from "$esm/react-helmet-async";
-import { hydrateRoot } from "$esm/react-dom/client";
-import { BrowserRouter } from "$esm/react-router-dom";
+import { startTransition, StrictMode } from "$npm/react";
+import { HelmetProvider } from "$npm/react-helmet-async";
+import { hydrateRoot } from "$npm/react-dom/client";
+import { BrowserRouter } from "$npm/react-router-dom";
 import { App } from "./app.tsx";
 
 const BrowserApp = () => (

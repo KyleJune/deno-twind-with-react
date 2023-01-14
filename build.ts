@@ -21,7 +21,7 @@ export async function build(options: esbuild.BuildOptions) {
     minify: true,
     format: "esm",
     jsx: "automatic",
-    jsxImportSource: "$esm/react",
+    jsxImportSource: "$npm/react",
     ...options,
   });
   return () => esbuild.stop();

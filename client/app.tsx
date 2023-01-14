@@ -1,14 +1,10 @@
-import { Helmet } from "$esm/react-helmet-async";
-import { Route, Routes } from "$esm/react-router-dom";
+import { lazy } from "$npm/react";
+import { Helmet } from "$npm/react-helmet-async";
+import { Route, Routes } from "$npm/react-router-dom";
 
-import { lazyFactory } from "./lazy.ts";
 import { Index, Layout } from "./routes/index.tsx";
 
-const lazy = lazyFactory(import.meta.url);
-const Anything = lazy(
-  "./routes/anything.tsx",
-  () => import("./routes/anything.tsx"),
-);
+const Anything = lazy(() => import("./routes/anything.tsx"));
 
 export function App() {
   return (

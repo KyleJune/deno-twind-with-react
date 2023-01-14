@@ -1,10 +1,10 @@
 import { App } from "./client/app.tsx";
 import { tw } from "./client/twind.ts";
-import { HelmetContext, HelmetProvider } from "$esm/react-helmet-async";
-import TwindStream from "$esm/@twind/with-react/readableStream";
-import { renderToReadableStream } from "$esm/react-dom/server";
-import { StaticRouter } from "$esm/react-router-dom/server";
-import serialize from "$esm/serialize-javascript";
+import { HelmetContext, HelmetProvider } from "$npm/react-helmet-async";
+import TwindStream from "$npm/@twind/with-react/readableStream";
+import { renderToReadableStream } from "$npm/react-dom/server";
+import { StaticRouter } from "$npm/react-router-dom/server";
+import serialize from "$npm/serialize-javascript";
 import { Context } from "$x/oak/mod.ts";
 import "./client/manifest.ts";
 

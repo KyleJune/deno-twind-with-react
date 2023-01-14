@@ -1,6 +1,6 @@
-import install from "$esm/@twind/with-react";
-import presetTailwind from "$esm/@twind/preset-tailwind";
-import presetAutoprefix from "$esm/@twind/preset-autoprefix";
+import install from "$npm/@twind/with-react";
+import presetTailwind from "$npm/@twind/preset-tailwind";
+import presetAutoprefix from "$npm/@twind/preset-autoprefix";
 import { isBrowser, isProduction } from "../env.ts";
 
 export const tw = install({
