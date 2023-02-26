@@ -33,6 +33,6 @@ if (import.meta.main) {
     options.jsxDev = true;
     options.sourcemap = "linked";
   }
-  const stop = (await build(options));
+  const stop = await build(options);
   if (!options.watch) stop();
 }
